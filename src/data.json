@@ -1,0 +1,74 @@
+{
+    "data": [
+        {
+            "value": "polygon",
+            "label": "Polygon",
+            "type":"parent",
+            "children": [
+                {
+                    "value": "ward",
+                    "label": "Ward",
+                    "type": "fill",
+                    "data": "/Ward.json",
+                    "id": "ward"
+                },
+                {
+                    "value": "zone",
+                    "label": "Zone",
+                    "type": "fill",
+                    "data": "/Zone.json",
+                    "id": "zone"
+                }
+            ]
+        },
+        {
+            "value": "line",
+            "label": "Line",
+            "type":"parent",
+            "children": [
+                {
+                    "value": "path",
+                    "label": "Path",
+                    "type":"parent",
+                    "children": [
+                        {
+                            "value": "roads",
+                            "label": "Roads",
+                            "type": "line",
+                            "data": "/Roads.json",
+                            "id": "roads"
+                        },
+                        {
+                            "value": "footpaths",
+                            "label": "Footpaths",
+                            "type": "line",
+                            "data": "/Footpaths.json",
+                            "id": "footpaths"
+                        }
+                    ]
+                },
+                {
+                    "value": "drainage",
+                    "label": "Drainage",
+                    "type":"parent",
+                    "children": [
+                        {
+                            "value": "waste",
+                            "label": "Waste",
+                            "type": "line",
+                            "data": "/Waste.json",
+                            "id": "waste"
+                        },
+                        {
+                            "value": "storm",
+                            "label": "Storm",
+                            "type": "line",
+                            "data": "/Storm.json",
+                            "id": "storm"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
