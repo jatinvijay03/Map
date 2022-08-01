@@ -21,9 +21,25 @@ export default function Map(props) {
   var layerList = [];
 
 
+
   //List of Theme Colors
 
   var colorList = ["red", "blue", "green", "brown", "orange", "pink"];
+
+
+  function traverse(arr) {
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i].type === "parent") {
+        traverse(arr[i].children);
+      }
+      else {
+        layerList.push(arr[i]);
+      }
+    }
+  }
+
+  traverse(data.data);
+  console.log(layerList);
 
 
 
@@ -42,19 +58,9 @@ export default function Map(props) {
 
     //DFS Function
 
-    function traverse(arr) {
-      for (var i = 0; i < arr.length; i++) {
-        if (arr[i].type === "parent") {
-          traverse(arr[i].children);
-        }
-        else {
-          layerList.push(arr[i]);
-        }
-      }
-    }
 
-    traverse(data.data);
-    console.log(layerList);
+
+
 
 
     //Generating layers
@@ -79,16 +85,34 @@ export default function Map(props) {
 
 
 
+
   });
 
+
+
+
+
+
   useEffect(() => {
-    
-    for(var i = 0;i<props.checked.length;i++){
-      map.current.setLayoutProperty(props.checked[i],'visibility','visible');
+
+
+
+
+    for (var i = 0; i < layerList.length; i++) {
+
+      if(props.checked.includes(layerList[i].id))
+      {map.current.setLayoutProperty(layerList[i].id, 'visibility', 'visible');
+      
+        
+      }
+      
+      
+
+
     }
 
-  
-},[props.checked]);
+
+  }, [props.checked]);
 
   return (
     <div className="map-wrap">
