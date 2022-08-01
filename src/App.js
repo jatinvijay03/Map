@@ -1,4 +1,4 @@
-import React from 'react';
+import React , { useState }from 'react';
 import Map from './components/map';
 
 import './App.css';
@@ -7,14 +7,32 @@ import Sidebar from './components/Sidebar.jsx';
 
 
 function App() {
+
+  const [checked,setChecked] = useState([]);
+
+  function handleCheck(checked){
+
+    setChecked(checked);
+    console.log(checked);
+
+  };
+
+  
+
   return (
     <div className="row App">
 
       <div className='col-9'>
-        <Map />
+        <Map 
+          checked = {checked}
+          
+        />
         </div>
       <div className='col'>
-        <Sidebar />
+        <Sidebar 
+          handleCheck = {handleCheck}
+          checked = {checked}
+        />
         </div>
 
 

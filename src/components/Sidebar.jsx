@@ -3,17 +3,12 @@ import CheckboxTree from 'react-checkbox-tree';
 import data from "../data.json";
 
 
-function Widget(){
-    const [checked, setChecked] = useState([]);
+function Widget(props){
+    
     const [expanded, setExpanded] = useState([]);
 
     function handleCheck(checked){
-
-        setChecked(checked);
-        console.log(checked);
-        
-
-
+        props.handleCheck(checked)
     }
 
     function handleExpanded(expanded){
@@ -25,7 +20,7 @@ function Widget(){
         return (
             <CheckboxTree
                 nodes={data.data}
-                checked={checked}
+                checked={props.checked}
                 expanded={expanded}
                 onCheck={handleCheck}
                 onExpand={handleExpanded}

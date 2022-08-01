@@ -10,7 +10,7 @@ import data from "../data.json";
 
 
 
-export default function Map() {
+export default function Map(props) {
   //Initialize state
 
   const mapContainer = useRef(null);
@@ -18,6 +18,8 @@ export default function Map() {
   const [lng] = useState(72.8311);
   const [lat] = useState(21.1702);
   const [zoom] = useState(10);
+  var layerList = [];
+
 
   //List of Theme Colors
 
@@ -35,7 +37,7 @@ export default function Map() {
     });
     map.current.addControl(new maplibregl.NavigationControl(), 'top-right');
 
-    var layerList = [];
+
 
 
     //DFS Function
@@ -53,7 +55,8 @@ export default function Map() {
 
     traverse(data.data);
     console.log(layerList);
-    
+
+
     //Generating layers
 
     for (var i = 0; i < layerList.length; i++) {
@@ -66,16 +69,32 @@ export default function Map() {
           "fill-opacity": 0.2
         });
 
+
+
     }
+
+
+
 
 
 
 
   });
 
+  useEffect(() => {
+    
+    for(var i = 0;i<props.checked.length;i++){
+      map.current.setLayoutProperty(props.checked[i],'visibility','visible');
+    }
+
+  
+},[props.checked]);
+
   return (
     <div className="map-wrap">
       <div ref={mapContainer} className="map" />
+
+
     </div>
   );
 }

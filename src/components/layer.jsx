@@ -12,7 +12,11 @@ function Layer(Map, id, type, data, paint) {
         'data': data
       },
 
-      'paint': paint
+      'paint': paint,
+      'layout':{
+        'visibility':'none'
+      }
+      
     });
 
 
