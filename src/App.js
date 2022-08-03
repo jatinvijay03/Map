@@ -13,7 +13,7 @@ function App() {
   function handleCheck(checked){
 
     setChecked(checked);
-    console.log(checked);
+    
 
   };
 

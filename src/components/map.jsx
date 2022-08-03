@@ -6,10 +6,6 @@ import Layer from './layer';
 import data from "../data.json";
 
 
-
-
-
-
 export default function Map(props) {
   //Initialize state
 
@@ -20,10 +16,7 @@ export default function Map(props) {
   const [zoom] = useState(10);
   var layerList = [];
 
-
-
   //List of Theme Colors
-
   var colorList = ["red", "blue", "green", "brown", "orange", "pink"];
 
 
@@ -39,12 +32,30 @@ export default function Map(props) {
   }
 
   traverse(data.data);
-  console.log(layerList);
+
 
 
 
   useEffect(() => {
-    if (map.current) return; //stops map from intializing more than once
+    if (map.current) {
+      map.current.on('idle', () => {
+        for (var i = 0; i < layerList.length; i++) {
+
+          if (props.checked.includes(layerList[i].id)) {
+            map.current.setLayoutProperty(layerList[i].id, 'visibility', 'visible');
+
+          }
+          else {
+            map.current.setLayoutProperty(layerList[i].id, 'visibility', 'none');
+          }
+
+
+        }
+      })
+
+
+      return;
+    }; //stops map from intializing more than once
     map.current = new maplibregl.Map({
       container: mapContainer.current,
       style: "https://api.maptiler.com/maps/streets/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL",
@@ -53,66 +64,22 @@ export default function Map(props) {
     });
     map.current.addControl(new maplibregl.NavigationControl(), 'top-right');
 
-
-
-
-    //DFS Function
-
-
-
-
-
-
     //Generating layers
 
     for (var i = 0; i < layerList.length; i++) {
 
-      if (layerList[i].type === "line")
-        Layer(map.current, layerList[i].id, layerList[i].type, layerList[i].data, { "line-color": colorList[i] });
-      else if (layerList[i].type === "fill")
+      if (layerList[i].type === "line") { Layer(map.current, layerList[i].id, layerList[i].type, layerList[i].data, { "line-color": colorList[i] }); }
+      else if (layerList[i].type === "fill") {
         Layer(map.current, layerList[i].id, layerList[i].type, layerList[i].data, {
           "fill-color": colorList[i],
           "fill-opacity": 0.2
         });
-
-
-
-    }
-
-
-
-
-
-
-
-
-  });
-
-
-
-
-
-
-  useEffect(() => {
-
-
-
-
-    for (var i = 0; i < layerList.length; i++) {
-
-      if(props.checked.includes(layerList[i].id))
-      {map.current.setLayoutProperty(layerList[i].id, 'visibility', 'visible');
-      
-        
       }
-      
-      
-
-
     }
-
-
   }, [props.checked]);
+
+
+
 
   return (
     <div className="map-wrap">
