@@ -19,7 +19,8 @@ export default function Map(props) {
   //List of Theme Colors
   var colorList = ["red", "blue", "green", "brown", "orange", "pink"];
 
-
+//Generating list of layer objects
+  
   function traverse(arr) {
     for (var i = 0; i < arr.length; i++) {
       if (arr[i].type === "parent") {
@@ -27,9 +28,9 @@ export default function Map(props) {
       }
       else {
         layerList.push(arr[i]);
-      }
-    }
-  }
+      };
+    };
+  };
 
   traverse(data.data);
 
@@ -47,15 +48,16 @@ export default function Map(props) {
           }
           else {
             map.current.setLayoutProperty(layerList[i].id, 'visibility', 'none');
-          }
+          };
 
 
-        }
-      })
+        };
+      });
 
 
       return;
     }; //stops map from intializing more than once
+
     map.current = new maplibregl.Map({
       container: mapContainer.current,
       style: "https://api.maptiler.com/maps/streets/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL",
@@ -74,8 +76,8 @@ export default function Map(props) {
           "fill-color": colorList[i],
           "fill-opacity": 0.2
         });
-      }
-    }
+      };
+    };
   }, [props.checked]);
 
 
