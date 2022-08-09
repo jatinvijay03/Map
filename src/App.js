@@ -1,7 +1,7 @@
 import React , { useState }from 'react';
 import Map from './components/map';
 
-import './App.css';
+import './App.scss';
 import Sidebar from './components/Sidebar.jsx';
 import Navbar from './components/navbar';
 
