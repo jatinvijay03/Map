@@ -6,9 +6,26 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.Sidebar{
+  background-color: #D9F8C4;
+  padding:2% 0% 0% 2% ;
+  
+  
 }
+
+
+.Map{
+  padding: 0%;
+  
+  
+  
+}
+
+
+
+
+

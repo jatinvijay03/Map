@@ -15,10 +15,7 @@ export default function Map(props) {
   const [lat] = useState(21.1702);
   const [zoom] = useState(10);
   var layerList = [];
-
-  //List of Theme Colors
-  var colorList = ["red", "blue", "green", "brown", "orange", "pink"];
-
+  
 //Generating list of layer objects
   
   function traverse(arr) {
@@ -42,12 +39,12 @@ export default function Map(props) {
       map.current.on('idle', () => {
         for (var i = 0; i < layerList.length; i++) {
 
-          if (props.checked.includes(layerList[i].id)) {
-            map.current.setLayoutProperty(layerList[i].id, 'visibility', 'visible');
+          if (props.checked.includes(layerList[i].value)) {
+            map.current.setLayoutProperty(layerList[i].value, 'visibility', 'visible');
 
           }
           else {
-            map.current.setLayoutProperty(layerList[i].id, 'visibility', 'none');
+            map.current.setLayoutProperty(layerList[i].value, 'visibility', 'none');
           };
 
 
@@ -60,7 +57,7 @@ export default function Map(props) {
 
     map.current = new maplibregl.Map({
       container: mapContainer.current,
-      style: "https://api.maptiler.com/maps/streets/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL",
+      style: "/mapStyle.json",
       center: [lng, lat],
       zoom: zoom
     });
@@ -69,14 +66,7 @@ export default function Map(props) {
     //Generating layers
 
     for (var i = 0; i < layerList.length; i++) {
-
-      if (layerList[i].type === "line") { Layer(map.current, layerList[i].id, layerList[i].type, layerList[i].data, { "line-color": colorList[i] }); }
-      else if (layerList[i].type === "fill") {
-        Layer(map.current, layerList[i].id, layerList[i].type, layerList[i].data, {
-          "fill-color": colorList[i],
-          "fill-opacity": 0.2
-        });
-      };
+      Layer(map.current, layerList[i].id, layerList[i].type, layerList[i].data, layerList[i].paint);
     };
   }, [props.checked]);
 
