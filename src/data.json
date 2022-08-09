@@ -1,90 +1,142 @@
 {
+    "sources": {
+        "openmaptiles": {
+            "url": "https://api.maptiler.com/tiles/v3/tiles.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL",
+            "type": "vector"
+        },
+        "maptiler_attribution": {
+            "attribution": "<a href=\"https://www.maptiler.com/copyright/\" target=\"_blank\">&copy; MapTiler</a> <a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\">&copy; OpenStreetMap contributors</a>",
+            "type": "vector"
+        }
+    },
     "data": [
         {
             "value": "polygon",
             "label": "Polygon",
-            "type":"parent",
+            "type": "parent",
             "children": [
                 {
                     "value": "ward",
                     "label": "Ward",
                     "type": "fill",
-                    "data": "/Ward.json",
+                    "source": {
+                        "type": "geojson",
+                        "data": "/Ward.json"
+                    },
                     "id": "ward",
                     "paint": {
                         "fill-color": "red",
                         "fill-opacity": 0.2
-                    }
+                    },
+                    "layout": {
+                        "visibility": "none"
+                    },
+                    "filter":["all"]
                 },
                 {
                     "value": "zone",
                     "label": "Zone",
                     "type": "fill",
-                    "data": "/Zone.json",
+                    "source": {
+                        "type": "geojson",
+                        "data": "/Zone.json"
+                    },
                     "id": "zone",
                     "paint": {
                         "fill-color": "blue",
                         "fill-opacity": 0.2
-                    }
+                    },
+                    "layout": {
+                        "visibility": "none"
+                    },
+                    "filter":["all"]
                 }
             ]
         },
         {
             "value": "line",
             "label": "Line",
-            "type":"parent",
+            "type": "parent",
             "children": [
                 {
                     "value": "path",
                     "label": "Path",
-                    "type":"parent",
+                    "type": "parent",
                     "children": [
                         {
                             "value": "roads",
                             "label": "Roads",
                             "type": "line",
-                            "data": "/Roads.json",
+                            "source": {
+                                "type": "geojson",
+                                "data": "/Roads.json"
+                            },
                             "id": "roads",
-                            "paint":{
-                                "line-color":"orange"
-                            }
+                            "paint": {
+                                "line-color": "orange"
+                            },
+                            "layout": {
+                                "visibility": "none"
+                            },
+                            "filter":["all"]
                         },
                         {
                             "value": "footpaths",
                             "label": "Footpaths",
                             "type": "line",
-                            "data": "/Footpaths.json",
+                            "source":{
+                                "type": "geojson",
+                                "data": "/Footpaths.json"
+                            },
                             "id": "footpaths",
-                            "paint":{
-                                "line-color":"pink"
-                            }
+                            "paint": {
+                                "line-color": "pink"
+                            },
+                            "layout": {
+                                "visibility": "none"
+                            },
+                            "filter":["all"]
                         }
                     ]
                 },
                 {
                     "value": "drainage",
                     "label": "Drainage",
-                    "type":"parent",
+                    "type": "parent",
                     "children": [
                         {
                             "value": "waste",
                             "label": "Waste",
                             "type": "line",
-                            "data": "/Waste.json",
+                            "source": {
+                                "type": "geojson",
+                                "data": "/Waste.json"
+                            },
                             "id": "waste",
-                            "paint":{
-                                "line-color":"brown"
-                            }
+                            "paint": {
+                                "line-color": "brown"
+                            },
+                            "layout": {
+                                "visibility": "none"
+                            },
+                            "filter":["all"]
                         },
                         {
                             "value": "storm",
                             "label": "Storm",
                             "type": "line",
-                            "data": "/Storm.json",
+                            "source": {
+                                "type": "geojson",
+                                "data": "/Storm.json"
+                            },
                             "id": "storm",
-                            "paint":{
-                                "line-color":"green"
-                            }
+                            "paint": {
+                                "line-color": "green"
+                            },
+                            "layout": {
+                                "visibility": "none"
+                            },
+                            "filter":["all"]
                         }
                     ]
                 }

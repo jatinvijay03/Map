@@ -16,6 +16,7 @@ export default function Map(props) {
   const [zoom] = useState(10);
   var layerList = [];
   
+  
 //Generating list of layer objects
   
   function traverse(arr) {
@@ -66,7 +67,7 @@ export default function Map(props) {
     //Generating layers
 
     for (var i = 0; i < layerList.length; i++) {
-      Layer(map.current, layerList[i].id, layerList[i].type, layerList[i].data, layerList[i].paint);
+      Layer(map.current, layerList[i].id, layerList[i].type, layerList[i].source,"",{},0, layerList[i].paint,layerList[i].layout,layerList[i].filter);
     };
   }, [props.checked]);
 

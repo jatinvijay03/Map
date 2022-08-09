@@ -1,21 +1,22 @@
 import maplibregl from 'maplibre-gl';
 
-function Layer(Map, id, type, data, paint) {
+function Layer(Map, id, type, data, sourceLayer,metadata,minzoom, paint,layout,filter) {
 
   Map.on('load', () => {
 
     Map.addLayer({
       'id': id,
       'type': type,
-      'source': {
-        'type': 'geojson',
-        'data': data
-      },
+      'source': data,
+      'source-layer':sourceLayer,
+      'metadata':metadata,
+      'minzoom':minzoom,
+
 
       'paint': paint,
-      'layout': {
-        'visibility': 'none'
-      }
+      'layout': layout,
+      'filter': filter
+      
 
     }, 'waterway_tunnel');
 
