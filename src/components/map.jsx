@@ -15,10 +15,10 @@ export default function Map(props) {
   const [lat] = useState(21.1702);
   const [zoom] = useState(10);
   var layerList = [];
-  
-  
-//Generating list of layer objects
-  
+
+
+  //Generating list of layer objects
+
   function traverse(arr) {
     for (var i = 0; i < arr.length; i++) {
       if (arr[i].type === "parent") {
@@ -67,7 +67,7 @@ export default function Map(props) {
     //Generating layers
 
     for (var i = 0; i < layerList.length; i++) {
-      Layer(map.current, layerList[i].id, layerList[i].type, layerList[i].source,"",{},0, layerList[i].paint,layerList[i].layout,layerList[i].filter);
+      Layer(map.current, layerList[i].id, layerList[i].type, layerList[i].source, "", {}, 0, layerList[i].paint, layerList[i].layout, layerList[i].filter);
     };
   }, [props.checked]);
 

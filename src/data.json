@@ -31,7 +31,9 @@
                     "layout": {
                         "visibility": "none"
                     },
-                    "filter":["all"]
+                    "filter": [
+                        "all"
+                    ]
                 },
                 {
                     "value": "zone",
@@ -49,7 +51,9 @@
                     "layout": {
                         "visibility": "none"
                     },
-                    "filter":["all"]
+                    "filter": [
+                        "all"
+                    ]
                 }
             ]
         },
@@ -78,13 +82,15 @@
                             "layout": {
                                 "visibility": "none"
                             },
-                            "filter":["all"]
+                            "filter": [
+                                "all"
+                            ]
                         },
                         {
                             "value": "footpaths",
                             "label": "Footpaths",
                             "type": "line",
-                            "source":{
+                            "source": {
                                 "type": "geojson",
                                 "data": "/Footpaths.json"
                             },
@@ -95,7 +101,9 @@
                             "layout": {
                                 "visibility": "none"
                             },
-                            "filter":["all"]
+                            "filter": [
+                                "all"
+                            ]
                         }
                     ]
                 },
@@ -119,7 +127,9 @@
                             "layout": {
                                 "visibility": "none"
                             },
-                            "filter":["all"]
+                            "filter": [
+                                "all"
+                            ]
                         },
                         {
                             "value": "storm",
@@ -136,7 +146,9 @@
                             "layout": {
                                 "visibility": "none"
                             },
-                            "filter":["all"]
+                            "filter": [
+                                "all"
+                            ]
                         }
                     ]
                 }

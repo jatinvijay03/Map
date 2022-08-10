@@ -1,6 +1,6 @@
 import maplibregl from 'maplibre-gl';
 
-function Layer(Map, id, type, data, sourceLayer,metadata,minzoom, paint,layout,filter) {
+function Layer(Map, id, type, data, sourceLayer, metadata, minzoom, paint, layout, filter) {
 
   Map.on('load', () => {
 
@@ -8,15 +8,15 @@ function Layer(Map, id, type, data, sourceLayer,metadata,minzoom, paint,layout,f
       'id': id,
       'type': type,
       'source': data,
-      'source-layer':sourceLayer,
-      'metadata':metadata,
-      'minzoom':minzoom,
+      'source-layer': sourceLayer,
+      'metadata': metadata,
+      'minzoom': minzoom,
 
 
       'paint': paint,
       'layout': layout,
       'filter': filter
-      
+
 
     }, 'waterway_tunnel');
 
