@@ -58,7 +58,7 @@ export default function Map(props) {
 
     map.current = new maplibregl.Map({
       container: mapContainer.current,
-      style: "/mapStyle.json",
+      style: 'https://api.maptiler.com/maps/streets/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL',
       center: [lng, lat],
       zoom: zoom
     });

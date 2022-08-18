@@ -3,7 +3,7 @@ import Map from './components/map';
 
 import './App.scss';
 import Sidebar from './components/Sidebar.jsx';
-import Navbar from './components/navbar';
+
 
 
 
@@ -23,25 +23,26 @@ function App() {
   return (
 
     <div className='App'>
-      <Navbar />
-      <div className="row">
+      
+      
 
-        <div className='col-9 Map'>
+        <div >
           <Map
             checked={checked}
 
           />
         </div>
-        <div className='col-3 Sidebar'>
+        <div>
           <Sidebar
             handleCheck={handleCheck}
             checked={checked}
+            
           />
         </div>
 
 
 
-      </div>
+      
     </div>
   )
 }

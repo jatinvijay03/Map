@@ -14,7 +14,7 @@
     },
     "layers": [
         {
-            "id": "background",
+            "id" : "background",
             "type": "background",
             "layout": {
                 "visibility": "visible"
