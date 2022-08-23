@@ -13,7 +13,7 @@
         }
     },
     "layers": [
-        {
+        { 
             "id" : "background",
             "type": "background",
             "layout": {

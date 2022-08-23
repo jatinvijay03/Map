@@ -4,7 +4,7 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import './map.scss';
 import Layer from './layer';
 import data from "../data.json";
-
+import layers from "../mapStyle.json"
 
 export default function Map(props) {
   //Initialize state
@@ -35,9 +35,14 @@ export default function Map(props) {
 
 
 
+
   useEffect(() => {
     if (map.current) {
+
+
       map.current.on('idle', () => {
+
+        //Toggle Fuctionality for custom data
         for (var i = 0; i < layerList.length; i++) {
 
           if (props.checked.includes(layerList[i].value)) {
@@ -50,7 +55,25 @@ export default function Map(props) {
 
 
         };
-      });
+
+        //Toggle functionality for basemap data
+
+        for (var i = 0; i < layers.layers.length; i++) {
+
+          if (props.checkedBase.includes(layers.layers[i].id)) {
+            map.current.setLayoutProperty(layers.layers[i].id, 'visibility', 'visible');
+
+          }
+          else {
+            map.current.setLayoutProperty(layers.layers[i].id, 'visibility', 'none');
+          };
+
+
+        }
+      }
+
+      );
+
 
 
       return;
@@ -69,7 +92,15 @@ export default function Map(props) {
     for (var i = 0; i < layerList.length; i++) {
       Layer(map.current, layerList[i].id, layerList[i].type, layerList[i].source, "", {}, 0, layerList[i].paint, layerList[i].layout, layerList[i].filter);
     };
-  }, [props.checked]);
+
+    for (var i = 0; i < layers.layers.length; i++) {
+      props.checkedBase.push(layers.layers[i].id)
+    }
+  }, [props.checked, props.checkedBase]);
+  //Set baseMap layers checked by default
+
+
+
 
 
 

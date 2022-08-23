@@ -14,6 +14,17 @@ function App() {
   function handleCheck(checked) {
 
     setChecked(checked);
+    console.log(checked);
+
+
+  };
+
+  const [checkedBase, setcheckedBase] = useState([]);
+
+  function handleCheckBase(checkedBase) {
+
+    setcheckedBase(checkedBase);
+    console.log(checkedBase);
 
 
   };
@@ -29,6 +40,7 @@ function App() {
         <div >
           <Map
             checked={checked}
+            checkedBase = {checkedBase}
 
           />
         </div>
@@ -36,6 +48,8 @@ function App() {
           <Sidebar
             handleCheck={handleCheck}
             checked={checked}
+            handleCheckBase={handleCheckBase}
+            checkedBase={checkedBase}
             
           />
         </div>

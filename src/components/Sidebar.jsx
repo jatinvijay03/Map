@@ -14,9 +14,14 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import Divider from '@mui/material/Divider';
 import CssBaseline from '@mui/material/CssBaseline';
 import data from "../data.json";
-
 import "./Checklist.scss";
 import layers from "../mapStyle.json"
+
+for (var i = 0; i < layers.layers.length; i++) {
+    layers.layers[i].label = layers.layers[i].id;
+    layers.layers[i].value = layers.layers[i].id;
+    
+}
 
 
 function Checklist(props) {
@@ -35,7 +40,7 @@ function Checklist(props) {
     }
     function onOrderChange(orderedNodes) {
         setOrderNodes(orderedNodes);
-      }
+    }
 
     return (
 
@@ -73,7 +78,7 @@ function Checklist(props) {
 
 function Sidebar(props) {
 
-    const drawerWidth = 300;
+    const drawerWidth = 500;
 
     const darkTheme = createTheme({
         palette: {
@@ -185,9 +190,9 @@ function Sidebar(props) {
                     </DrawerHeader>
                     <Divider />
                     <div className="dataHeading">
-                    <Typography variant="h6">
-                        Custom Data
-                    </Typography>
+                        <Typography variant="h6">
+                            Custom Data
+                        </Typography>
                     </div>
                     <Divider />
                     <div className="customData">
@@ -200,9 +205,24 @@ function Sidebar(props) {
                         />
                     </div>
                     <Divider />
-                    <div className="customData">
-
+                    <div className="dataHeading">
+                        <Typography variant="h6">
+                            Base Data
+                        </Typography>
                     </div>
+                    <Divider />
+                    <div className="customData">
+                    <Checklist
+                        data={layers.layers}
+                        handleCheck={props.handleCheckBase}
+                        checked={props.checkedBase}
+
+
+                    />
+                        </div>
+
+                    <Divider />
+
 
 
                 </Drawer>
