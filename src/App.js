@@ -14,7 +14,8 @@ function App() {
   function handleCheck(checked) {
 
     setChecked(checked);
-    console.log(checked);
+
+    
 
 
   };
@@ -24,9 +25,7 @@ function App() {
   function handleCheckBase(checkedBase) {
 
     setcheckedBase(checkedBase);
-    console.log(checkedBase);
-
-
+    
   };
 
 

@@ -21,17 +21,15 @@ function Layer(Map, id, type, data, sourceLayer, metadata, minzoom, paint, layou
     }, 'waterway_tunnel');
 
 
-    Map.on('click', id, (e) => {
-      new maplibregl.Popup()
-        .setLngLat(e.lngLat)
-        .setHTML("<p> Name: " + e.features[0].properties.Name_1 + "</p>" +
-          "<p>No: " + e.features[0].properties.No + "</p>")
-        .addTo(Map);
-    });
+    // Map.on('click', id, (e) => {
+      
+    //   new maplibregl.Popup()
+    //     .setLngLat(e.lngLat)
+    //     .setHTML(`<p> Name: ${e.features[0].properties.Name_1}</p><p>No: ${e.features[0].properties.No}</p>`)
+    //     .addTo(Map);
+    // });
+    
   });
-
-
-
 }
 
 export default Layer;

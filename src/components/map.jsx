@@ -11,9 +11,9 @@ export default function Map(props) {
 
   const mapContainer = useRef(null);
   const map = useRef(null);
-  const [lng] = useState(72.8311);
-  const [lat] = useState(21.1702);
-  const [zoom] = useState(10);
+  const [lng] = useState(80);
+  const [lat] = useState(24);
+  const [zoom] = useState(4);
   var layerList = [];
 
 
@@ -31,6 +31,7 @@ export default function Map(props) {
   };
 
   traverse(data.data);
+  
 
 
 
