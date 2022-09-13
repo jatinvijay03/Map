@@ -28,9 +28,6 @@ function Checklist(props) {
     const [expanded, setExpanded] = useState([]);
     const [nodes, setOrderNodes] = useState(props.data);
 
-
-
-
     function handleCheck(checked) {
         props.handleCheck(checked)
     }
